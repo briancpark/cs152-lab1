@@ -2,6 +2,108 @@
 
 This changelog follows the format defined here: https://keepachangelog.com/en/1.0.0/
 
+## [1.5.0] - 2021-06-13
+
+A more detailed account of everything included is included in the dev to master PR for this release: https://github.com/ucb-bar/chipyard/pull/773
+
+### Added
+* FireMarshal support for FPGA prototypes (#849)
+* Hammer update to include power estimation flows, rail analysis, hierarchical sim support, and improved ASAP7 plugin with dummy SRAMs (#886)
+* Docker image 
+* Support specifying architecture when building tools. (#802)
+* Add Config fragments: WithMultiRoCCFromBuildRoCC, PMP (#809, #821)
+* Add support for simulating an AXI memory interface over the default TL serial link (#812)
+* Add option to add async queues between chip-serialIO and harness serdes (#828)
+* Spike support for multiple extensions, and add sha3 spike model to esp-tools (#837, #897)
+* Default generator support for I2C and PWM (#885)
+
+### Changed
+* Gemmini bump to version 0.5
+* FireSim bump to version 1.12
+* FireMarshal bump to version 1.12
+* Changes default FireSim frequency from 3.2 GHz (dual clock domains) to 1 GHz (single clock domain)
+* Bump pygments from 2.2.0 to 2.7.4 in docs 
+* Hammer tutorial example is now a TinyRocketConfig (#886)
+* Sha3 Spike model moved from sha3 repo to esp-isa-sim
+
+### Fixed
+* Avoid permissions conflict on shared protocjar.webcache (#774)
+* Passing MBus clock frequency to SimDRAM (#790)
+* Fix parsing of --ignore-qemu option (#791)
+* FPGA Prototype - Support Adding Pullup R's to Bringup GPIOs (#806)
+* Use "tile" instead of "core" to assign frequencies in WithTileFrequency config. fragment (#807)
+* Fix IOCell generation for clock and reset to use IOCellKey (#824)
+* Fix TileResetCtrl to be ahead of reset synchronizers (#826)
+* Fix memory alignment in character count RoCC test (#853)
+* Synchronize JTAG reset to JTAG.TCK. (#859)
+* Updates to system requirements scripts (#874)
+* Rocket-dsp-utils integration and cleanup for dsptools (#888)
+
+### Removed
+* Dummy DCO collateral from Hammer tutorial example (#886)
+
+
+## [1.4.0] - 2021-01-19
+
+A more detailed account of everything included is included in the dev to master PR for this release: https://github.com/ucb-bar/chipyard/pull/599
+
+### Added
+* OpenSBI Support (#633)
+* Support for Diplomacy-based clocking (#614, #682)
+* Support for Diplomacy-based IOBinders (#699)
+* Sodor core integration (#648)
+* Simple Divider-Only PLL for Multiclock RTL Simulation (#676)
+* Enable parallel Hammer simulations (#600)
+* OpenRoad nangate45 Hammer backend (#608)
+* Add support for "LBWIF" backing memory through serialized TileLink (#673)
+* Add variable to control FIRRTL logging verbosity (#627)
+* Add RANDOM_SEED variable to set random init for VCS and Verilator simulations (#629)
+* Fast LoadMem support (#635)
+* Multithreaded Verilator (#654)
+* Support for custom Verilator optimization flags (#728)
+* Add config-fragment to use broadcast manager instead of L2 for coherence (#721)
+* Added optional ignore QEMU flag to `build-toolchains.sh` (#709)
+* Split `JAVA_ARGS` into `JAVA_OPTS` and `SBT_OPTS` (#719)
+* Experimental support for SBT thin client. Enable with `export ENABLE_SBT_THIN_CLIENT=1` (https://github.com/sbt/sbt/pull/5620) (#719)
+* Helper `make` targets to launch SBT console (`sbt`) and shutdown/start thin server (<start/shutdown>-sbt-server) (#719)
+* Allow users to override `CC` and `CXX` for `build-toolchains.sh` (#739)
+* Support VCU118/Arty local FPGA prototypes through `fpga-shells` (#747)
+* A 16-core LargeBOOM configuration has been added to FireChip to highlight the resource-optimizing platform configurations added to FireSim in firesim/firesim#636 (#756)
+
+### Changed
+* Bump Chisel to 3.4.1.x (#742, #719, #751)
+* Bump RocketChip to a7b016e (#742, #719)
+* Bump FireSim to 1.11
+* Bump Gemmini to v0.5
+* Bump to SBT 1.4.4 (#719)
+* Split IOBinders into IOBinders and HarnessBinders | punch out clocks to harness for simwidgets and bridges (#670, #674)
+* Have FireSim build recipes use Chipyard configs rather than FireChip configs (#695)
+* FireMarshal boot default to OpenSBI rather than BBL (#633)
+* Override default baud rate for FireChip (#625)
+* DTM only supports HTIF in DMI mode (#672)
+* Unify HTIF implementation between Chipyard and Firesim (#683)
+* Renamed Ariane to CVA6 (#710)
+* `build.sbt` refactoring/fixes for RC/Chisel/Firrtl bump (#719)
+* Use `; x; y; z;` syntax to run multiple SBT commands (#719)
+* CI Improvements: Cleanup `check-commit` printout. Don't transfer `.git` folders. (#750)
+
+### Fixed
+* Multi-SHA3 configs (#597)
+* Allow dramsim_ini folder to be set at the command line (#598)
+* Emit HTIF Node in device tree (#607)
+* Fixes for AXI4 MMIO and FBus ports (#618)
+* Only punch realistic subset of DebugIO through chiptop | default to JTAG+Serial (#664)
+* IceNet bug fixes (#720)
+* smartelf2hex.sh bug fixes (#677, #693)
+* env.sh zsh compatibility (#705)
+* build-toolchains.sh bug fixes (#745 #739)
+* Bump Dromajo to work with older version of glibc (#709)
+
+### Removed
+* Support for synchronous ChipTop reset (#703)
+* Split `JAVA_ARGS` into `JAVA_OPTS` and `SBT_OPTS` (#719)
+
+
 ## [1.3.0] - 2020-05-31
 
 A more detailed account of everything included is included in the dev to master PR for this release: https://github.com/ucb-bar/chipyard/pull/500
