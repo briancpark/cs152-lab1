@@ -48,7 +48,9 @@ plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
 plt.savefig("figures/3_5_1.png")
 plt.clf()
-new_cpi = []
+
+
+new_cpi_mem = []
 
 print("Benchmarks for Modified CPI")
 for i in range(len(benchmarks)):
@@ -57,7 +59,7 @@ for i in range(len(benchmarks)):
     total_cycles += int(memory[i] * cycles[i])
     total_cycles += int(1.5 * control[i] * cycles[i])
     total_cycles += int(1.5 * misc[i] * cycles[i])
-    new_cpi.append(total_cycles / instructions[i] / 100)
+    new_cpi_mem.append(total_cycles / instructions[i] / 100)
     print(f"{benchmarks[i]} & {round(new_cpi[i], 3)}")
 
 plt.figure(figsize=(10, 5), dpi=440)
@@ -66,4 +68,16 @@ plt.title("New CPI for Benchmarks")
 plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
 plt.savefig("figures/3_5_2.png")
+plt.clf()
+
+# Comparison Plot
+plt.figure(figsize=(10, 5), dpi=440)
+plt.bar(X_axis - 0.2, new_cpi, 0.4, label="Modified CPI")
+plt.bar(X_axis + 0.2, new_cpi_mem , 0.4, label="Mofiied CPI with Memory Optimized")
+plt.title("CPI Comparison")
+plt.xticks(X_axis, benchmarks)
+plt.xlabel("Benchmarks")
+plt.ylabel("CPI")
+plt.savefig("figures/3_5_3.png")
+plt.legend()
 plt.clf()
