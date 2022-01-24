@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 ### 3.4
 benchmarks = ["dhrystone", "median", "multiply", "qsort", "rsort", "towers", "vvadd"]
 arithmetic = [40.381, 31.843, 63.157, 38.379, 59.575, 41.716, 45.887]
@@ -40,25 +39,31 @@ for i in range(len(benchmarks)):
     total_cycles += int(1.5 * control[i] * cycles[i])
     total_cycles += int(1.5 * misc[i] * cycles[i])
     new_cpi.append(total_cycles / instructions[i] / 100)
-    print(benchmarks[i], ":", new_cpi[i])
+    print(f"{benchmarks[i]} & {round(new_cpi[i], 3)}")
 
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(benchmarks, new_cpi)
-plt.title("Benchmark by Instruction Breakdown Modified")
+plt.title("New CPI for Benchmarks")
 plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
-plt.savefig("figures/3_5.png")
+plt.savefig("figures/3_5_1.png")
 plt.clf()
+new_cpi = []
 
+print("Benchmarks for Modified CPI")
+for i in range(len(benchmarks)):
+    total_cycles = 0
+    total_cycles += int(arithmetic[i] * cycles[i])
+    total_cycles += int(memory[i] * cycles[i])
+    total_cycles += int(1.5 * control[i] * cycles[i])
+    total_cycles += int(1.5 * misc[i] * cycles[i])
+    new_cpi.append(total_cycles / instructions[i] / 100)
+    print(f"{benchmarks[i]} & {round(new_cpi[i], 3)}")
 
-
-"""
-Consider the results gathered from the RV32 1-stage processor. 
-Suppose you were to design a new machine such that the average CPI of loads and stores 
-is 2 cycles, integer arithmetic instructions take 1 cycle, and other instructions take 
-1.5 cycles on average. What is the overall CPI of the machine for each benchmark?
-
-What is the relative performance for each benchmark if loads/stores are sped up to 
-have an average CPI of 1? Is this still a worthwhile modification if it means that the
-cycle time increases 30\%? Is it worthwhile for all benchmarks or only a subset? Explain.
-"""
+plt.figure(figsize=(10, 5), dpi=440)
+plt.bar(benchmarks, new_cpi)
+plt.title("New CPI for Benchmarks")
+plt.xlabel("Benchmarks")
+plt.ylabel("CPI")
+plt.savefig("figures/3_5_2.png")
+plt.clf()
