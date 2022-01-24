@@ -70,10 +70,11 @@ plt.ylabel("CPI")
 plt.savefig("figures/3_5_2.png")
 plt.clf()
 
+new_cpi_mem = [cpi * 1.3 for cpi in new_cpi_mem]
 # Comparison Plot
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(X_axis - 0.2, new_cpi, 0.4, label="Modified CPI")
-plt.bar(X_axis + 0.2, new_cpi_mem , 0.4, label="Mofiied CPI with Memory Optimized")
+plt.bar(X_axis + 0.2, new_cpi_mem , 0.4, label="Modified CPI with Memory Optimized and Increased Cycle Time of 30%")
 plt.title("CPI Comparison")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
