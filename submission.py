@@ -27,8 +27,6 @@ plt.savefig("figures/3_4.png")
 plt.clf()
 
 
-
-
 """
 Consider the results gathered from the RV32 1-stage processor. 
 Suppose you were to design a new machine such that the average CPI of loads and stores 
@@ -53,7 +51,7 @@ for i in range(len(benchmarks)):
     new_memory[i] = new_memory[i] / total
     new_control[i] = new_control[i] / total
     new_misc[i] = new_misc[i] / total
-    
+
 plt.figure(figsize=(10, 5), dpi=440)
 
 plt.bar(X_axis - 0.2, new_arithmetic, 0.2, label="Arithmetic")
