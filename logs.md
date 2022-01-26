@@ -1,10 +1,12 @@
 # CS 152 Logs and Commands for Lab 1
 
 ## Getting Started
+
+Make sure these commands are run and environment variables are set upon login:
+
 ```sh
 source ~cs152/sp22/cs152.lab1.bashrc
 ```
-
 
 ```sh
 cd /scratch/$USER
@@ -14,46 +16,77 @@ SCRIPTS=$LAB1ROOT/generators/riscv-sodor/scripts
 ./scripts/init-submodules-no-riscv-tools.sh
 ```
 
+Compile a simulator:
+
 ```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig
 ```
+
+Running benchmarks on different configurations of pipeline:
+
+1. 1-stage pipeline
 
 ```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/towers.riscv
 ```
 
-## Results
+```
 mcycle = 6166
 minstret = 6172
+```
 
+2. 2-stage pipeline
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor2StageConfig run-binary BINARY=${BMARKS}/towers.riscv
+```
 
+```
 mcycle = 6582
 minstret = 6172
+```
 
+3. 3-stage pipeline
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor3StageConfig run-binary BINARY=${BMARKS}/towers.riscv
+```
 
+```
 mcycle = 7414
 minstret = 6172
+```
 
+4. 5-stage pipeline
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/towers.riscv
+```
 
+```
 mcycle = 7000
 minstret = 6172
+```
 
+5. UCode pipeline
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=SodorUCodeConfig run-binary BINARY=${BMARKS}/towers.riscv
+```
+
+```
 mcycle = 45051
 minstret = 6172
+```
 
 ## Benchmarking
 
-# dhrystone
+### dhrystone
 
 ```sh
 cd ${LAB1ROOT}/sims/verilator
@@ -82,9 +115,9 @@ Instruction Breakdown:
 % Misc.       : 0.541 %
 ```
 
+### median
 
-# median
-```
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/median.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor1StageConfig/median.out
@@ -109,10 +142,13 @@ Instruction Breakdown:
 % Misc.       : 0.815 %
 ```
 
-# multiply
+### multiply
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/multiply.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor1StageConfig/multiply.out
+```
 
 ```
 mcycle = 20896
@@ -133,10 +169,13 @@ Instruction Breakdown:
 % Misc.       : 0.348 %
 ```
 
-# qsort
+### qsort
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/qsort.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor1StageConfig/qsort.out
+```
 
 ```
 mcycle = 123503
@@ -157,10 +196,13 @@ Instruction Breakdown:
 % Misc.       : 0.322 %
 ```
 
-# rsort
+### rsort
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/rsort.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor1StageConfig/rsort.out
+```
 
 ```
 mcycle = 171128
@@ -181,10 +223,13 @@ Instruction Breakdown:
 % Misc.       : 1.152 %
 ```
 
-# towers
+### towers
+
+```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/towers.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor1StageConfig/towers.out
+```
 
 ```
 mcycle = 6166
@@ -205,7 +250,7 @@ Instruction Breakdown:
 % Misc.       : 0.715 %
 ```
 
-### Vadd
+### vvadd
 
 ```sh
 cd ${LAB1ROOT}/sims/verilator
@@ -237,7 +282,7 @@ Instruction Breakdown:
 ```
 
 
-### Vadd
+### vvadd
 
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/dhrystone.riscv
@@ -371,7 +416,6 @@ ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/towers.out
 ```
 mcycle = 7000
 minstret = 6172
-
 ```
 
 ```sh
