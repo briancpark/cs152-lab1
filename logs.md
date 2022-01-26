@@ -206,6 +206,7 @@ Instruction Breakdown:
 ```
 
 ### Vadd
+
 ```sh
 cd ${LAB1ROOT}/sims/verilator
 make CONFIG=Sodor1StageConfig run-binary BINARY=${BMARKS}/vvadd.riscv
@@ -233,4 +234,166 @@ Instruction Breakdown:
 % Ld/St       : 30.548 %
 % Branch/Jump : 22.484 %
 % Misc.       : 1.081 %
+```
+
+
+### Vadd
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/dhrystone.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/dhrystone.out
+```
+
+```
+Microseconds for one run through Dhrystone: 589
+Dhrystones per Second:                      1697
+mcycle = 294534
+minstret = 224530
+
+Stats:
+
+CPI          : 1.323
+IPC          : 0.756
+Cycles       : 321980
+Instructions : 243405
+Bubbles      : 78576
+
+Instruction Breakdown:
+% Arithmetic  : 40.530 %
+% Ld/St       : 35.199 %
+% Branch/Jump : 23.725 %
+% Misc.       : 0.546 %
+```
+
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/median.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/median.out
+```
+
+```
+mcycle = 6369
+minstret = 4155
+
+
+Stats:
+
+CPI          : 1.469
+IPC          : 0.681
+Cycles       : 24257
+Instructions : 16513
+Bubbles      : 7745
+
+Instruction Breakdown:
+% Arithmetic  : 32.471 %
+% Ld/St       : 31.387 %
+% Branch/Jump : 35.293 %
+% Misc.       : 0.848 %
+```
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/multiply.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/multiply.out
+```
+
+```
+mcycle = 33136
+minstret = 20902
+
+Stats:
+
+CPI          : 1.565
+IPC          : 0.639
+Cycles       : 78272
+Instructions : 50012
+Bubbles      : 28261
+
+Instruction Breakdown:
+% Arithmetic  : 63.801 %
+% Ld/St       : 4.227 %
+% Branch/Jump : 31.620 %
+% Misc.       : 0.352 %
+```
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/qsort.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/qsort.out
+```
+
+```
+mcycle = 172780
+minstret = 123509
+
+Stats:
+
+CPI          : 1.421
+IPC          : 0.704
+Cycles       : 335271
+Instructions : 236006
+Bubbles      : 99266
+
+Instruction Breakdown:
+% Arithmetic  : 38.448 %
+% Ld/St       : 31.404 %
+% Branch/Jump : 29.826 %
+% Misc.       : 0.323 %
+```
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/rsort.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/rsort.out
+```
+
+```
+mcycle = 182392
+minstret = 171134
+
+Stats:
+
+CPI          : 1.083
+IPC          : 0.923
+Cycles       : 405570
+Instructions : 374490
+Bubbles      : 31081
+
+Instruction Breakdown:
+% Arithmetic  : 59.660 %
+% Ld/St       : 34.844 %
+% Branch/Jump : 4.341 %
+% Misc.       : 1.155 %
+```
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/towers.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/towers.out
+```
+
+```
+mcycle = 7000
+minstret = 6172
+
+```
+
+```sh
+make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/vvadd.riscv
+${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/vvadd.out
+```
+
+```
+mcycle = 3020
+minstret = 2418
+
+Stats:
+
+CPI          : 1.351
+IPC          : 0.740
+Cycles       : 16519
+Instructions : 12229
+Bubbles      : 4291
+
+Instruction Breakdown:
+% Arithmetic  : 47.535 %
+% Ld/St       : 29.397 %
+% Branch/Jump : 21.923 %
+% Misc.       : 1.145 %
 ```
