@@ -84,7 +84,7 @@ mcycle = 45051
 minstret = 6172
 ```
 
-## Benchmarking
+## CPI Analysis Using the 1-Stage Processor
 
 ### dhrystone
 
@@ -282,7 +282,8 @@ Instruction Breakdown:
 ```
 
 
-### vvadd
+## CPI Analysis Using the 5-Stage Processor
+### dhrystone
 
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/dhrystone.riscv
@@ -310,6 +311,7 @@ Instruction Breakdown:
 % Misc.       : 0.546 %
 ```
 
+### median
 
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/median.riscv
@@ -336,6 +338,8 @@ Instruction Breakdown:
 % Misc.       : 0.848 %
 ```
 
+### multiply
+
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/multiply.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/multiply.out
@@ -359,6 +363,8 @@ Instruction Breakdown:
 % Branch/Jump : 31.620 %
 % Misc.       : 0.352 %
 ```
+
+### qsort
 
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/qsort.riscv
@@ -384,6 +390,8 @@ Instruction Breakdown:
 % Misc.       : 0.323 %
 ```
 
+### rsort
+
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/rsort.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/rsort.out
@@ -408,6 +416,8 @@ Instruction Breakdown:
 % Misc.       : 1.155 %
 ```
 
+### towers
+
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/towers.riscv
 ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/towers.out
@@ -416,7 +426,23 @@ ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/towers.out
 ```
 mcycle = 7000
 minstret = 6172
+
+Stats:
+
+CPI          : 1.250
+IPC          : 0.800
+Cycles       : 23604
+Instructions : 18877
+Bubbles      : 4728
+
+Instruction Breakdown:
+% Arithmetic  : 42.544 %
+% Ld/St       : 41.935 %
+% Branch/Jump : 14.780 %
+% Misc.       : 0.742 %
 ```
+
+### vvadd
 
 ```sh
 make CONFIG=Sodor5StageConfig run-binary BINARY=${BMARKS}/vvadd.riscv
