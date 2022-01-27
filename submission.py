@@ -89,14 +89,17 @@ plt.clf()
 cpi_bypass_on = [1.323, 1.469, 1.565, 1.421, 1.083, 1.250, 1.351]
 cpi_bypass_off = [1.986, 1.888, 1.911, 1.935, 2.323, 1.673, 1.839]
 
+print("Percentage Slowdown for Bypass")
+for i in range(len(benchmarks)):
+    print(f"{benchmarks[i]} & {round(cpi_bypass_on[i] / cpi_bypass_off[i], 3)}")
+
 plt.figure(figsize=(10, 5), dpi=440)
-plt.bar(X_axis - 0.2, cpi_bypass_on, 0.4, label="Bypass On")
-plt.bar(X_axis + 0.2, cpi_bypass_off , 0.4, label="Bypass Off")
-plt.title("CPI Comparison of 5-Stage Pipeline with and without Bypass")
+plt.bar(X_axis - 0.2, cpi_bypass_on, 0.4, label="Full Bypassing")
+plt.bar(X_axis + 0.2, cpi_bypass_off , 0.4, label="Full Interlocking")
+plt.title("CPI Comparison of 5-Stage Pipeline Full Bypassing vs. Full Interlocking")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
-# plt.legend(loc='lower right')
 plt.legend()
 plt.savefig("figures/3_6.png")
 plt.clf()
