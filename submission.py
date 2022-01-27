@@ -82,3 +82,21 @@ plt.ylabel("CPI")
 plt.legend(loc='lower right')
 plt.savefig("figures/3_5_3.png")
 plt.clf()
+
+
+### 3.6
+
+cpi_bypass_on = [1.323, 1.469, 1.565, 1.421, 1.083, 1.250, 1.351]
+cpi_bypass_off = [1.986, 1.888, 1.911, 1.935, 2.323, 1.673, 1.839]
+
+plt.figure(figsize=(10, 5), dpi=440)
+plt.bar(X_axis - 0.2, cpi_bypass_on, 0.4, label="Bypass On")
+plt.bar(X_axis + 0.2, cpi_bypass_off , 0.4, label="Bypass Off")
+plt.title("CPI Comparison of 5-Stage Pipeline with and without Bypass")
+plt.xticks(X_axis, benchmarks)
+plt.xlabel("Benchmarks")
+plt.ylabel("CPI")
+# plt.legend(loc='lower right')
+plt.legend()
+plt.savefig("figures/3_6.png")
+plt.clf()
