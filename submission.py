@@ -114,8 +114,7 @@ control =    [20.803,  30.141, 30.955,29.055,4.194 ,11.754 ,20.588]
 misc =       [0.474 , 0.698  , 0.340 ,0.314 ,1.098 ,0.546 ,0.990]
 
 
-instructions = [245700, 17181, 50612, 236655, 375282, 19592, 12947]
-cycles = [instruction - 1 for instruction in instructions]
+nz_instructions = [280579, 20056, 51697, 242932, 393828, 25650, 14139]
 
 X_axis = np.arange(len(benchmarks))
 
@@ -132,5 +131,18 @@ plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
 plt.ylabel("Intensity (%)")
 plt.legend()
-plt.savefig("figures/3_7.png")
+plt.savefig("figures/3_7_1.png")
+plt.clf()
+
+
+
+plt.figure(figsize=(10, 5), dpi=440)
+plt.bar(X_axis - 0.2, instructions, 0.4, label="Original")
+plt.bar(X_axis + 0.2, nz_instructions , 0.4, label="Modified for Non-Zero Offsets")
+plt.title("Instructions Comparison")
+plt.xticks(X_axis, benchmarks)
+plt.xlabel("Benchmarks")
+plt.ylabel("CPI")
+plt.legend(loc='upper right')
+plt.savefig("figures/3_7_2.png")
 plt.clf()
