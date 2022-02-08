@@ -146,7 +146,9 @@ plt.bar(X_axis + 0.2, nz_instructions, 0.4, label="Modified for Non-Zero Offsets
 plt.title("Instructions Comparison")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
-plt.ylabel("CPI")
+plt.ylabel("Instructions")
 plt.legend(loc="upper right")
 plt.savefig("figures/3_7_2.png")
 plt.clf()
+
+print([nz_instruction / instruction for instruction, nz_instruction in zip(instructions, nz_instructions)])
