@@ -103,3 +103,34 @@ plt.ylabel("CPI")
 plt.legend()
 plt.savefig("figures/3_6.png")
 plt.clf()
+
+
+### 3.7
+benchmarks = ["dhrystone", "median", "multiply", "qsort", "rsort", "towers", "vvadd"]
+arithmetic = [47.792,  41.613, 63.930,39.972,61.478, 55.481, 50.449]
+memory =    [30.930,  27.548, 4.774 ,30.660,33.230,32.218 ,27.972]
+memory_nz =  [12.431,  14.335, 2.099 ,2.584 ,4.709 ,23.618 ,8.431]
+control =    [20.803,  30.141, 30.955,29.055,4.194 ,11.754 ,20.588]
+misc =       [0.474 , 0.698  , 0.340 ,0.314 ,1.098 ,0.546 ,0.990]
+
+
+instructions = [245700, 17181, 50612, 236655, 375282, 19592, 12947]
+cycles = [instruction - 1 for instruction in instructions]
+
+X_axis = np.arange(len(benchmarks))
+
+
+plt.figure(figsize=(10, 5), dpi=440)
+
+plt.bar(X_axis - 0.15, arithmetic, 0.1, label="Arithmetic")
+plt.bar(X_axis - 0.05, memory, 0.1, label="Memory")
+plt.bar(X_axis + 0.05, memory_nz, 0.1, label="Memory Non-Zero Offsets")
+plt.bar(X_axis + 0.15, control, 0.1, label="Control")
+
+plt.title("Benchmark by Instruction Breakdown")
+plt.xticks(X_axis, benchmarks)
+plt.xlabel("Benchmarks")
+plt.ylabel("Intensity (%)")
+plt.legend()
+plt.savefig("figures/3_7.png")
+plt.clf()

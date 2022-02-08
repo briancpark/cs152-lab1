@@ -655,3 +655,117 @@ Instruction Breakdown:
 % Branch/Jump : 21.994 %
 % Misc.       : 1.175 %
 ```
+
+
+## 3.7
+### dhrystone
+Stats:
+
+CPI          : 0.876
+IPC          : 1.142
+Cycles       : 245699
+Instructions : 280579
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 47.792 %
+% Ld/St        : 30.930 %
+% Ld/St Nonzero : 12.431 %
+% Branch/Jump  : 20.803 %
+% Misc.        : 0.474 %
+
+
+Stats:
+
+CPI          : 0.857
+IPC          : 1.167
+Cycles       : 17180
+Instructions : 20056
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 41.613 %
+% Ld/St        : 27.548 %
+% Ld/St Nonzero : 14.335 %
+% Branch/Jump  : 30.141 %
+% Misc.        : 0.698 %
+
+
+Stats:
+
+CPI          : 0.979
+IPC          : 1.021
+Cycles       : 50611
+Instructions : 51697
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 63.930 %
+% Ld/St        : 4.774 %
+% Ld/St Nonzero : 2.099 %
+% Branch/Jump  : 30.955 %
+% Misc.        : 0.340 %
+
+
+Stats:
+
+CPI          : 0.974
+IPC          : 1.027
+Cycles       : 236654
+Instructions : 242932
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 39.972 %
+% Ld/St        : 30.660 %
+% Ld/St Nonzero : 2.584 %
+% Branch/Jump  : 29.055 %
+% Misc.        : 0.314 %
+
+
+Stats:
+
+CPI          : 0.953
+IPC          : 1.049
+Cycles       : 375281
+Instructions : 393828
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 61.478 %
+% Ld/St        : 33.230 %
+% Ld/St Nonzero : 4.709 %
+% Branch/Jump  : 4.194 %
+% Misc.        : 1.098 %
+
+
+Stats:
+
+CPI          : 0.764
+IPC          : 1.309
+Cycles       : 19591
+Instructions : 25650
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 55.481 %
+% Ld/St        : 32.218 %
+% Ld/St Nonzero : 23.618 %
+% Branch/Jump  : 11.754 %
+% Misc.        : 0.546 %
+
+
+Stats:
+
+CPI          : 0.916
+IPC          : 1.092
+Cycles       : 12946
+Instructions : 14139
+Bubbles      : 0
+
+Instruction Breakdown:
+% Arithmetic   : 50.449 %
+% Ld/St        : 27.972 %
+% Ld/St Nonzero : 8.431 %
+% Branch/Jump  : 20.588 %
+% Misc.        : 0.990 %
