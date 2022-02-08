@@ -74,12 +74,17 @@ new_cpi_mem = [cpi * 1.3 for cpi in new_cpi_mem]
 # Comparison Plot
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(X_axis - 0.2, new_cpi, 0.4, label="Modified CPI")
-plt.bar(X_axis + 0.2, new_cpi_mem , 0.4, label="Modified CPI with Memory Optimized and Increased Cycle Time of 30%")
+plt.bar(
+    X_axis + 0.2,
+    new_cpi_mem,
+    0.4,
+    label="Modified CPI with Memory Optimized and Increased Cycle Time of 30%",
+)
 plt.title("CPI Comparison")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
-plt.legend(loc='lower right')
+plt.legend(loc="lower right")
 plt.savefig("figures/3_5_3.png")
 plt.clf()
 
@@ -95,7 +100,7 @@ for i in range(len(benchmarks)):
 
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(X_axis - 0.2, cpi_bypass_on, 0.4, label="Full Bypassing")
-plt.bar(X_axis + 0.2, cpi_bypass_off , 0.4, label="Full Interlocking")
+plt.bar(X_axis + 0.2, cpi_bypass_off, 0.4, label="Full Interlocking")
 plt.title("CPI Comparison of 5-Stage Pipeline Full Bypassing vs. Full Interlocking")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
@@ -107,11 +112,11 @@ plt.clf()
 
 ### 3.7
 benchmarks = ["dhrystone", "median", "multiply", "qsort", "rsort", "towers", "vvadd"]
-arithmetic = [47.792,  41.613, 63.930,39.972,61.478, 55.481, 50.449]
-memory =    [30.930,  27.548, 4.774 ,30.660,33.230,32.218 ,27.972]
-memory_nz =  [12.431,  14.335, 2.099 ,2.584 ,4.709 ,23.618 ,8.431]
-control =    [20.803,  30.141, 30.955,29.055,4.194 ,11.754 ,20.588]
-misc =       [0.474 , 0.698  , 0.340 ,0.314 ,1.098 ,0.546 ,0.990]
+arithmetic = [47.792, 41.613, 63.930, 39.972, 61.478, 55.481, 50.449]
+memory = [30.930, 27.548, 4.774, 30.660, 33.230, 32.218, 27.972]
+memory_nz = [12.431, 14.335, 2.099, 2.584, 4.709, 23.618, 8.431]
+control = [20.803, 30.141, 30.955, 29.055, 4.194, 11.754, 20.588]
+misc = [0.474, 0.698, 0.340, 0.314, 1.098, 0.546, 0.990]
 
 
 nz_instructions = [280579, 20056, 51697, 242932, 393828, 25650, 14139]
@@ -135,14 +140,13 @@ plt.savefig("figures/3_7_1.png")
 plt.clf()
 
 
-
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(X_axis - 0.2, instructions, 0.4, label="Original")
-plt.bar(X_axis + 0.2, nz_instructions , 0.4, label="Modified for Non-Zero Offsets")
+plt.bar(X_axis + 0.2, nz_instructions, 0.4, label="Modified for Non-Zero Offsets")
 plt.title("Instructions Comparison")
 plt.xticks(X_axis, benchmarks)
 plt.xlabel("Benchmarks")
 plt.ylabel("CPI")
-plt.legend(loc='upper right')
+plt.legend(loc="upper right")
 plt.savefig("figures/3_7_2.png")
 plt.clf()
