@@ -769,3 +769,6 @@ Instruction Breakdown:
 % Ld/St Nonzero : 8.431 %
 % Branch/Jump  : 20.588 %
 % Misc.        : 0.990 %
+
+
+cd ${LAB1ROOT}/generators/riscv-sodor/test/custom-bmarks && make && make run && cd ${LAB1ROOT}/sims/verilator && CUSTOM_BMARKS=${LAB1ROOT}/generators/riscv-sodor/test/custom-bmarks && make CONFIG=Sodor5StageConfig run-binary BINARY=${CUSTOM_BMARKS}/mix.riscv && ${SCRIPTS}/tracer.py output/chipyard.TestHarness.Sodor5StageConfig/mix.out
