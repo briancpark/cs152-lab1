@@ -151,4 +151,9 @@ plt.legend(loc="upper right")
 plt.savefig("figures/3_7_2.png")
 plt.clf()
 
-print([nz_instruction / instruction for instruction, nz_instruction in zip(instructions, nz_instructions)])
+print(
+    [
+        nz_instruction / instruction
+        for instruction, nz_instruction in zip(instructions, nz_instructions)
+    ]
+)
