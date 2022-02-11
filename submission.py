@@ -96,7 +96,7 @@ cpi_bypass_off = [1.986, 1.888, 1.911, 1.935, 2.323, 1.673, 1.839]
 
 print("Percentage Slowdown for Bypass")
 for i in range(len(benchmarks)):
-    print(f"{benchmarks[i]} & {round(cpi_bypass_on[i] / cpi_bypass_off[i], 3)}")
+    print(f"{benchmarks[i]} & {cpi_bypass_on[i]} & {cpi_bypass_off[i]} & {round(cpi_bypass_off[i] / cpi_bypass_on[i], 3)}")
 
 plt.figure(figsize=(10, 5), dpi=440)
 plt.bar(X_axis - 0.2, cpi_bypass_on, 0.4, label="Full Bypassing")
